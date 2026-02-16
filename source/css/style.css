@@ -1658,7 +1658,6 @@ body {
 }
 
 @media (max-width: 768px) {
-  /* HIDE DESKTOP NAV */
   .desktop-nav {
     display: none !important;
   }
@@ -1725,9 +1724,6 @@ body {
     height: 100%;
   }
 
-  /* ============================================ */
-  /* MOBILE - FLASHCARD FACES STATE MANAGEMENT */
-  /* ============================================ */
   .flashcard-front,
   .flashcard-back {
     padding: 60px 25px 70px 25px;
@@ -1735,7 +1731,6 @@ body {
     min-height: 500px;
   }
 
-  /* ✅ DEFAULT STATE - FRONT VISIBLE */
   .flashcard-front {
     z-index: 50 !important;
     pointer-events: auto !important;
@@ -1746,7 +1741,6 @@ body {
     pointer-events: none !important;
   }
 
-  /* ✅ FLIPPED STATE - BACK VISIBLE */
   .flashcard-wrapper.flipped .flashcard-front {
     z-index: 10 !important;
     pointer-events: none !important;
@@ -1757,9 +1751,6 @@ body {
     pointer-events: auto !important;
   }
 
-  /* ============================================ */
-  /* CONTENT VISIBILITY */
-  /* ============================================ */
   .flashcard-content {
     display: flex !important;
     flex-direction: column !important;
@@ -1775,7 +1766,6 @@ body {
     pointer-events: none !important;
   }
 
-  /* ✅ WHEN FLIPPED, MORE BOTTOM PADDING */
   .flashcard-wrapper.flipped .flashcard-back .flashcard-content {
     padding-bottom: 110px !important;
   }
@@ -1846,9 +1836,6 @@ body {
     font-size: 16px;
   }
 
-  /* ============================================ */
-  /* REVEAL BUTTON - DEFAULT STATE */
-  /* ============================================ */
   .flashcard-front .reveal-btn {
     position: absolute !important;
     bottom: 15px !important;
@@ -1866,9 +1853,6 @@ body {
     -webkit-tap-highlight-color: rgba(157, 78, 221, 0.3) !important;
   }
 
-  /* ============================================ */
-  /* BACK BUTTON - FLIPPED STATE */
-  /* ============================================ */
   .flashcard-back .back-btn {
     position: absolute !important;
     bottom: 15px !important;
@@ -1886,7 +1870,6 @@ body {
     -webkit-tap-highlight-color: rgba(157, 78, 221, 0.3) !important;
   }
 
-  /* ✅ WHEN FLIPPED - ENSURE BACK BUTTON IS SUPER CLICKABLE */
   .flashcard-wrapper.flipped .back-btn {
     z-index: 600 !important;
     pointer-events: auto !important;
@@ -1905,9 +1888,6 @@ body {
     transform: translateX(-50%) scale(0.95) !important;
   }
 
-  /* ============================================ */
-  /* EMPTY STATE */
-  /* ============================================ */
   .empty-state {
     height: 500px;
     padding: 40px 20px;
