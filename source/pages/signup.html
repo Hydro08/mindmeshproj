@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MindMesh - Sign Up</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="../css/hover.css" />
+    <link rel="stylesheet" href="../css/style.css" />
+  </head>
+  <body>
+    <section class="signup-form-container">
+      <div class="header-signup-form">
+        <h1>MINDMESH</h1>
+        <p>Create your free account</p>
+      </div>
+      <form class="signup-form" id="signupForm">
+        <div class="signup-name-wrapper">
+          <label for="signupUsername" class="signup-name-text">USERNAME</label>
+          <input
+            type="text"
+            class="signup-name-input"
+            id="signupUsername"
+            placeholder="Name"
+            required
+          />
+        </div>
+        <div class="signup-password-group">
+          <label for="signupPassword" class="signup-password-text"
+            >PASSWORD</label
+          >
+          <div class="signup-password-wrapper">
+            <input
+              type="password"
+              class="signup-password-input"
+              id="signupPassword"
+              placeholder="••••••••"
+              required
+            />
+            <span class="show-pass-icon" id="signupShowPassIcon">
+              <i class="fa-solid fa-eye" style="color: #fff"></i>
+            </span>
+          </div>
+        </div>
+        <div class="signup-confirm-password-group">
+          <label
+            for="signupConfirmPassword"
+            class="signup-confirm-password-text"
+            >CONFIRM PASSWORD</label
+          >
+          <div class="signup-confirm-password-wrapper">
+            <input
+              type="password"
+              class="signup-confirm-password-input"
+              id="signupConfirmPassword"
+              placeholder="••••••••"
+              required
+            />
+            <span class="show-pass-icon" id="signupConfirmShowPassIcon">
+              <i class="fa-solid fa-eye" style="color: #fff"></i>
+            </span>
+          </div>
+        </div>
+      </form>
+      <div class="footer-signup-form">
+        <a href="../../index.html">Already have an account?</a>
+        <button type="button" id="signupBtn">SIGN UP</button>
+        <p>SECURE LOCAL AUTHENTICATION POWERED BY MINDMESH</p>
+      </div>
+    </section>
+    <script type="module" src="../js/script.js"></script>
+  </body>
+</html>

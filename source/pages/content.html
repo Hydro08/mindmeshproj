@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MindMesh - Flashcard App</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+    />
+    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="stylesheet" href="../css/hover.css" />
+  </head>
+  <body>
+    <main class="flashboard-container">
+      <header class="flashcard-header">
+        <button class="flashcard-back-button" id="flashcardBackButton">
+          <i class="fa-solid fa-chevron-left"></i>Back to Dashboard
+        </button>
+        <p class="logo">MindMesh</p>
+      </header>
+
+      <section class="flashboard-section">
+        <div class="flashboard-section-header">
+          <h1 class="subject-title">[Subject Category]</h1>
+          <p class="card-info">0 cards • Active Recall Mode</p>
+        </div>
+
+        <div class="flashboard-button-container">
+          <button id="flashboardCreateBtn">+ Create Flashcard</button>
+
+          <div class="category-dropdown-wrapper">
+            <button id="allCategoriesBtn">All Categories</button>
+            <div class="category-dropdown" id="categoryDropdown"></div>
+          </div>
+
+          <button id="resetProgressBtn">Reset Progress</button>
+        </div>
+
+        <div class="flashcard-index">
+          <p>
+            Card <span id="currentCard">0</span> of
+            <span id="totalCards">0</span>
+          </p>
+        </div>
+
+        <div class="flashcard-container">
+          <div class="flashcard-nav-btn previous-flashcard-view">
+            <button id="flashcardPrevBtn" aria-label="Previous card">
+              <i class="fa-solid fa-chevron-left"></i>
+            </button>
+          </div>
+
+          <div class="flashcard-wrapper">
+            <div class="flashcard-inner">
+              <div class="flashcard-front">
+                <div class="flashcard-options-wrapper">
+                  <button
+                    type="button"
+                    class="flashcard-options-btn"
+                    id="flashcardOptionsBtn"
+                  >
+                    <i class="fa-solid fa-ellipsis-vertical"></i>
+                  </button>
+
+                  <div class="flashcard-options-menu" id="flashcardOptionsMenu">
+                    <button
+                      type="button"
+                      class="option-item edit-option"
+                      id="editFlashcardBtn"
+                    >
+                      <i class="fa-solid fa-pen"></i> Edit
+                    </button>
+                    <button
+                      type="button"
+                      class="option-item delete-option"
+                      id="deleteFlashcardBtn"
+                    >
+                      <i class="fa-solid fa-trash"></i> Delete
+                    </button>
+                  </div>
+                </div>
+
+                <div class="flashcard-content">
+                  <p class="flashcard-question"></p>
+                  <input
+                    type="text"
+                    class="flashcard-input"
+                    placeholder="Type your answer here..."
+                    id="flashcardAnswerInput"
+                  />
+                  <button
+                    type="button"
+                    class="flashcard-submit-btn"
+                    id="flashcardSubmitBtn"
+                  >
+                    Submit Answer
+                  </button>
+                </div>
+
+                <button
+                  type="button"
+                  class="reveal-btn"
+                  id="flashcardRevealBtn"
+                >
+                  Reveal Answer
+                </button>
+              </div>
+
+              <div class="flashcard-back">
+                <div class="flashcard-content">
+                  <p class="answer-label">Answer:</p>
+                  <p class="flashcard-answer"></p>
+                </div>
+                <button type="button" class="back-btn" id="flashcardBackBtn">
+                  Back to Question
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div class="flashcard-nav-btn next-flashcard-view">
+            <button id="flashcardNextBtn" aria-label="Next card">
+              <i class="fa-solid fa-chevron-right"></i>
+            </button>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <script type="module" src="../js/script.js"></script>
+  </body>
+</html>

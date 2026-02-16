@@ -1,0 +1,108 @@
+.footer-login-form a:hover,
+.footer-signup-form a:hover {
+  background: rgba(157, 78, 221, 0.15);
+}
+
+.footer-login-form button:hover,
+.footer-signup-form button:hover {
+  box-shadow:
+    0 0 10px #9b00ce,
+    0 0 20px #fff;
+}
+
+.dashboard-decks-grid .dashboard-create-deck-card:hover,
+.dashboard-decks-grid .dashboard-created-deck-card:hover {
+  backdrop-filter: blur(10px);
+  box-shadow: 0 10px 40px rgba(255, 255, 255, 0.5);
+  z-index: 10;
+}
+
+.dashboard-decks-grid .dashboard-create-deck-card:hover p {
+  transform: scale(0.9);
+}
+
+.deck-options-wrapper .deck-options-btn:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.deck-options-menu .option-item:hover {
+  background: rgba(214, 101, 255, 0.2);
+}
+
+.deck-options-menu .edit-deck-option:hover {
+  background: rgba(59, 130, 246, 0.2);
+}
+
+.deck-options-menu .delete-deck-option:hover {
+  background: rgba(239, 68, 68, 0.2);
+  color: #ff6b6b;
+}
+
+.created-deck-delete-btn:hover img {
+  content: url("../images/icon/open-trashcan.png");
+}
+
+.flashcard-back-button:hover {
+  background: #5a0078;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 8px 32px rgba(157, 78, 221, 0.2);
+}
+
+.flashboard-button-container button:hover {
+  background: #5a0078;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 8px 32px rgba(157, 78, 221, 0.2);
+}
+
+.flashcard-nav-btn button:hover:not(:disabled) {
+  background: #5a0078;
+  transform: scale(1.1);
+}
+
+.flashcard-nav-btn button:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+.flashcard-input::placeholder {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.flashcard-input:focus {
+  outline: none;
+  background: rgba(255, 255, 255, 0.15);
+  border-color: #d665ff;
+}
+
+.flashcard-content .flashcard-submit-btn:hover {
+  background: #5a0078;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 8px 32px rgba(157, 78, 221, 0.2);
+}
+
+.reveal-btn:hover,
+.back-btn:hover {
+  background: #5a0078;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 8px 32px rgba(157, 78, 221, 0.2);
+}
+
+.create-deck-footer button:hover {
+  background: #5a0078;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+.create-deck-cancel-btn:hover {
+  background: rgba(255, 255, 255, 0.1) !important;
+}
+
+.create-flashcard-footer button:hover {
+  background: #5a0078;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+.create-flashcard-cancel-btn:hover {
+  background: rgba(255, 255, 255, 0.1) !important;
+}

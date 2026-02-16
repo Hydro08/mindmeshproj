@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MindMesh - Login</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="source/css/hover.css" />
+    <link rel="stylesheet" href="source/css/style.css" />
+  </head>
+  <body>
+    <section class="login-form-container">
+      <div class="header-login-form">
+        <h1>MINDMESH</h1>
+        <p>Welcome back, learner!</p>
+      </div>
+      <form class="login-form" id="loginForm">
+        <div class="login-name-wrapper">
+          <label for="loginUsername" class="login-name-text">USERNAME</label>
+          <input
+            type="text"
+            class="login-name-input"
+            id="loginUsername"
+            placeholder="Name"
+            required
+          />
+        </div>
+        <div class="login-password-group">
+          <label for="loginPassword" class="login-password-text"
+            >PASSWORD</label
+          >
+          <div class="login-password-wrapper">
+            <input
+              type="password"
+              class="login-password-input"
+              id="loginPassword"
+              placeholder="••••••••"
+              required
+            />
+
+            <span class="show-pass-icon" id="loginShowPassIcon">
+              <i class="fa-solid fa-eye" style="color: #fff"></i
+            ></span>
+          </div>
+        </div>
+      </form>
+      <div class="footer-login-form">
+        <a href="source/pages/signup.html">Don't have an account?</a>
+        <button type="button" id="loginBtn">LOGIN</button>
+        <p>SECURE LOCAL AUTHENTICATION POWERED BY MINDMESH</p>
+      </div>
+    </section>
+    <script type="module" src="source/js/script.js"></script>
+  </body>
+</html>

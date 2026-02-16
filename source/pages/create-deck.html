@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MindMesh - Create Deck</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+    />
+    <link rel="stylesheet" href="../css/hover.css" />
+    <link rel="stylesheet" href="../css/style.css" />
+  </head>
+  <body>
+    <main class="create-deck-main-page" id="createDeckPage">
+      <header class="create-deck-header">
+        <a href="dashboard.html" id="createDeckBackLink">
+          <i class="fa-solid fa-arrow-left"></i> Back To Dashboard</a
+        >
+        <p>MindMesh</p>
+      </header>
+      <section class="create-deck-container">
+        <div class="create-deck-content-header">
+          <p>Create New Deck</p>
+        </div>
+
+        <div class="create-deck-content">
+          <p>Deck Information</p>
+          <form class="create-deck-form">
+            <label for="createDeckName">Deck Name</label>
+            <input
+              type="text"
+              id="createDeckName"
+              name="createDeckName"
+              placeholder="Enter deck name"
+              required
+            />
+
+            <label for="createCategoryName">Category Name</label>
+            <input
+              type="text"
+              id="createCategoryName"
+              name="createCategoryName"
+              placeholder="Enter category name"
+            />
+            <div class="create-deck-footer">
+              <button
+                type="button"
+                class="create-deck-cancel-btn"
+                id="createDeckCancelBtn"
+              >
+                Cancel
+              </button>
+              <button
+                type="submit"
+                class="create-deck-create-btn"
+                id="createDeckSubmitBtn"
+              >
+                Create Deck
+              </button>
+            </div>
+          </form>
+        </div>
+      </section>
+    </main>
+    <script type="module" src="../js/script.js"></script>
+  </body>
+</html>

@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MindMesh - Profile</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+    />
+    <link rel="stylesheet" href="../css/hover.css" />
+    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="stylesheet" href="../css/profile.css" />
+  </head>
+  <body>
+    <main class="profile-main-page" id="profilePage">
+      <header class="profile-header">
+        <button class="profile-back-button" id="profileBackButton">
+          <i class="fa-solid fa-arrow-left"></i> Back To Dashboard
+        </button>
+        <p class="logo">MindMesh</p>
+      </header>
+
+      <section class="profile-container">
+        <div class="profile-section user-info-section">
+          <h2>USER INFORMATION</h2>
+          <div class="user-info-content">
+            <p>Name: <span id="profileUsername">Loading...</span></p>
+            <p>Joined Date: <span id="profileJoinedDate">Loading...</span></p>
+          </div>
+        </div>
+
+        <div class="profile-section stats-section">
+          <h2>YOUR STATISTICS</h2>
+          <div class="stats-content">
+            <div class="stat-item">
+              <p class="stat-label">Total Decks Created:</p>
+              <p class="stat-value" id="totalDecks">0</p>
+            </div>
+            <div class="stat-item">
+              <p class="stat-label">Total Cards Created:</p>
+              <p class="stat-value" id="totalCards">0</p>
+            </div>
+            <div class="stat-item">
+              <p class="stat-label">Total Study Time:</p>
+              <p class="stat-value" id="totalStudyTime">0 min</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="profile-section most-studied-section">
+          <h2>MOST STUDIED DECKS</h2>
+          <div class="most-studied-content" id="mostStudiedContent">
+            <p class="no-data">No study history yet</p>
+          </div>
+        </div>
+
+        <button class="profile-logout-btn" id="profileLogoutBtn">
+          <i class="fa-solid fa-right-from-bracket"></i> LOG OUT
+        </button>
+      </section>
+    </main>
+    <script type="module" src="../js/script.js"></script>
+  </body>
+</html>

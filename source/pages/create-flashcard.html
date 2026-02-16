@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MindMesh - Create Flashcard</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+    />
+    <link rel="stylesheet" href="../css/hover.css" />
+    <link rel="stylesheet" href="../css/style.css" />
+  </head>
+  <body>
+    <main class="create-flashcard-main-page" id="createFlashcardPage">
+      <header class="create-flashcard-header">
+        <a href="content.html" id="createFlashcardBackLink">
+          <i class="fa-solid fa-arrow-left"></i> Back To Flashcard</a
+        >
+        <p>MindMesh</p>
+      </header>
+      <section class="create-flashcard-container">
+        <div class="create-flashcard-content-header">
+          <h1>Create New Flashcard</h1>
+          <p>Category: <span id="flashcardCategory">Loading...</span></p>
+        </div>
+
+        <div class="create-flashcard-content">
+          <p>Flashcard Information</p>
+          <form class="create-flashcard-form">
+            <label for="createFlashcardQuestion">Question</label>
+            <input
+              type="text"
+              id="createFlashcardQuestion"
+              name="createFlashcardQuestion"
+              placeholder="Enter your question"
+              required
+            />
+
+            <label for="createFlashcardAnswer">Answer</label>
+            <input
+              type="text"
+              id="createFlashcardAnswer"
+              name="createFlashcardAnswer"
+              placeholder="Enter your answer"
+              required
+            />
+
+            <div class="create-flashcard-footer">
+              <button
+                type="button"
+                class="create-flashcard-cancel-btn"
+                id="createFlashcardCancelBtn"
+              >
+                Cancel
+              </button>
+              <button
+                type="submit"
+                class="create-flashcard-create-btn"
+                id="createFlashcardSubmitBtn"
+              >
+                Create Flashcard
+              </button>
+            </div>
+          </form>
+        </div>
+      </section>
+    </main>
+    <script type="module" src="../js/script.js"></script>
+  </body>
+</html>

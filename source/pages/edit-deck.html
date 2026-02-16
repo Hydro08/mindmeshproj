@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MindMesh - Edit Deck</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+    />
+    <link rel="stylesheet" href="../css/hover.css" />
+    <link rel="stylesheet" href="../css/style.css" />
+  </head>
+  <body>
+    <main class="create-deck-main-page" id="editDeckPage">
+      <header class="create-deck-header">
+        <a href="dashboard.html" id="editDeckBackLink">
+          <i class="fa-solid fa-arrow-left"></i> Back To Dashboard
+        </a>
+        <p>MindMesh</p>
+      </header>
+
+      <section class="create-deck-container">
+        <div class="edit-deck-content-header">
+          <h1>Edit Deck</h1>
+          <p>Update your deck information</p>
+        </div>
+
+        <div class="create-deck-content">
+          <p>Deck Information</p>
+          <form class="create-deck-form" id="editDeckForm">
+            <label for="editDeckName">Deck Name</label>
+            <input
+              type="text"
+              id="editDeckName"
+              name="editDeckName"
+              placeholder="Enter deck name"
+              required
+            />
+
+            <label for="editCategoryName">Category</label>
+            <input
+              type="text"
+              id="editCategoryName"
+              name="editCategoryName"
+              placeholder="Enter category name"
+              required
+            />
+
+            <div class="create-deck-footer">
+              <button
+                type="button"
+                class="create-deck-cancel-btn"
+                id="editDeckCancelBtn"
+              >
+                Cancel
+              </button>
+              <button
+                type="submit"
+                class="create-deck-create-btn"
+                id="editDeckSubmitBtn"
+              >
+                Save Changes
+              </button>
+            </div>
+          </form>
+        </div>
+      </section>
+    </main>
+    <script type="module" src="../js/script.js"></script>
+  </body>
+</html>

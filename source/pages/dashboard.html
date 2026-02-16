@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MindMesh - Dashboard</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+    />
+    <link rel="stylesheet" href="../css/hover.css" />
+    <link rel="stylesheet" href="../css/style.css" />
+  </head>
+  <body>
+    <main id="dashboardPage" class="dashboard-page">
+      <section class="dashboard-sidebar-section">
+        <div class="username-display">
+          <a href="profile.html" id="dashboardUsername">Username</a>
+        </div>
+        <div class="dashboard-sidebar-wrapper">
+          <div class="sphere"></div>
+          <div class="dashboard-decks-div">My Decks</div>
+        </div>
+        <button class="dashboard-signout-btn" id="dashboardSignoutBtn">
+          <i class="fa-solid fa-arrow-right-from-bracket"></i> Sign Out
+        </button>
+      </section>
+
+      <section class="dashboard-main-content">
+        <header class="dashboard-header">
+          <div class="dashboard-header-left">
+            <h1>My Decks</h1>
+            <p class="dashboard-subtitle">
+              Manage and study your flashcard collection
+            </p>
+          </div>
+          <div class="dashboard-menu-bar-mobile" id="dashboardMenuBarMobile">
+            <div class="dashboard-mobile-header">
+              <button class="mobile-close-bar" id="mobileCloseBar">X</button>
+            </div>
+            <div class="dashboard-mobile-content">
+              <a href="profile.html">[Username]</a>
+              <div class="dashboard-mobile-decks-inner">
+                <div class="dashboard-mobile-sphere"></div>
+                <div class="dashboard-mobile-div">My Decks</div>
+              </div>
+              <button id="dashboardMobileSignOutBtn">
+                <i class="fa-solid fa-arrow-right-from-bracket"></i>Sign Out
+              </button>
+            </div>
+          </div>
+          <div class="dashboard-header-right">
+            <button id="menuBarMobile">☰</button>
+            <p class="logo-text">MindMesh</p>
+          </div>
+        </header>
+        <hr />
+        <div class="dashboard-search-bar">
+          <input
+            type="text"
+            class="search-input"
+            id="searchInput"
+            placeholder="Search decks..."
+          />
+          <span class="clear-search" id="clearSearch">X</span>
+        </div>
+
+        <div class="dashboard-decks-grid">
+          <div class="dashboard-create-deck-card" id="dashboardCreateDeckCard">
+            <i class="fa-solid fa-plus"></i>
+            <p>Create Deck</p>
+          </div>
+
+          <template id="createdDeckTemplate" class="created-deck-template">
+            <div class="dashboard-created-deck-card">
+              <div class="created-deck-header">
+                <p class="created-subject-name"></p>
+
+                <div class="deck-options-wrapper">
+                  <button type="button" class="deck-options-btn">
+                    <i class="fa-solid fa-ellipsis-vertical"></i>
+                  </button>
+
+                  <div class="deck-options-menu">
+                    <button type="button" class="option-item edit-deck-option">
+                      <i class="fa-solid fa-pen"></i> Edit
+                    </button>
+                    <button
+                      type="button"
+                      class="option-item delete-deck-option"
+                    >
+                      <i class="fa-solid fa-trash"></i> Delete
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+              <div class="created-deck-content">
+                <div class="created-deck-category-wrapper">
+                  <p class="created-deck-category"></p>
+                </div>
+                <div class="created-deck-stats-wrapper">
+                  <p class="created-deck-all-cards"></p>
+                  <span style="color: #fff">•</span>
+                  <p class="created-deck-mastered"></p>
+                </div>
+                <div class="created-deck-percent-wrapper">
+                  <progress
+                    value="0"
+                    max="100"
+                    class="created-deck-percentage"
+                  ></progress>
+                </div>
+                <div class="created-deck-last-studied-wrapper">
+                  <p class="created-deck-last-studied"></p>
+                </div>
+              </div>
+            </div>
+          </template>
+        </div>
+      </section>
+    </main>
+
+    <script type="module" src="../js/script.js"></script>
+  </body>
+</html>
