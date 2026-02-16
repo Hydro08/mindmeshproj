@@ -1379,8 +1379,23 @@ body {
   box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
 }
 
+.flashcard-front {
+  z-index: 20;
+}
+
 .flashcard-back {
   transform: rotateY(180deg);
+  z-index: 10;
+}
+
+.flashcard-wrapper.flipped .flashcard-front {
+  z-index: 10;
+  pointer-events: none;
+}
+
+.flashcard-wrapper.flipped .flashcard-back {
+  z-index: 20;
+  pointer-events: auto;
 }
 
 .flashcard-content {
@@ -1390,9 +1405,15 @@ body {
   justify-content: center;
   align-items: center;
   gap: 25px;
-  padding: 20px 0;
+  padding: 20px 0 80px 0;
   position: relative;
   z-index: 1;
+  pointer-events: none;
+}
+
+.flashcard-input,
+.flashcard-submit-btn {
+  pointer-events: auto;
 }
 
 .flashcard-question {
@@ -1567,25 +1588,40 @@ body {
   position: absolute;
   bottom: 30px;
   right: 30px;
-  width: 140px;
-  height: 40px;
-  background: rgba(157, 78, 221, 0.15);
+
+  width: 160px;
+  height: 45px;
+
+  background: rgba(157, 78, 221, 0.3);
   border: 2px solid #9d4edd;
-  border-radius: 8px;
+  border-radius: 10px;
   color: #fff;
-  font-size: 14px;
+  font-size: 15px;
   font-weight: 600;
   cursor: pointer;
   transition: all 0.3s ease;
-  z-index: 50;
+
+  z-index: 150;
+  pointer-events: auto;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .reveal-btn:hover,
 .back-btn:hover {
   background: #5a0078;
   transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(157, 78, 221, 0.5);
+  border-color: #d665ff;
 }
 
+.reveal-btn:active,
+.back-btn:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 8px rgba(157, 78, 221, 0.4);
+}
 .empty-state {
   flex: 1;
   max-width: 700px;
@@ -1689,6 +1725,9 @@ body {
     height: 100%;
   }
 
+  /* ============================================ */
+  /* MOBILE - FLASHCARD FACES STATE MANAGEMENT */
+  /* ============================================ */
   .flashcard-front,
   .flashcard-back {
     padding: 60px 25px 70px 25px;
@@ -1696,18 +1735,49 @@ body {
     min-height: 500px;
   }
 
+  /* ✅ DEFAULT STATE - FRONT VISIBLE */
+  .flashcard-front {
+    z-index: 50 !important;
+    pointer-events: auto !important;
+  }
+
+  .flashcard-back {
+    z-index: 10 !important;
+    pointer-events: none !important;
+  }
+
+  /* ✅ FLIPPED STATE - BACK VISIBLE */
+  .flashcard-wrapper.flipped .flashcard-front {
+    z-index: 10 !important;
+    pointer-events: none !important;
+  }
+
+  .flashcard-wrapper.flipped .flashcard-back {
+    z-index: 50 !important;
+    pointer-events: auto !important;
+  }
+
+  /* ============================================ */
+  /* CONTENT VISIBILITY */
+  /* ============================================ */
   .flashcard-content {
     display: flex !important;
     flex-direction: column !important;
     justify-content: center !important;
     align-items: center !important;
     gap: 20px !important;
-    padding: 20px 0 !important;
+    padding: 20px 0 100px 0 !important;
     height: auto !important;
     min-height: 300px !important;
     visibility: visible !important;
     opacity: 1 !important;
     z-index: 10 !important;
+    pointer-events: none !important;
+  }
+
+  /* ✅ WHEN FLIPPED, MORE BOTTOM PADDING */
+  .flashcard-wrapper.flipped .flashcard-back .flashcard-content {
+    padding-bottom: 110px !important;
   }
 
   .flashcard-question {
@@ -1732,6 +1802,7 @@ body {
     visibility: visible !important;
     opacity: 1 !important;
     z-index: 10 !important;
+    pointer-events: auto !important;
   }
 
   .flashcard-submit-btn {
@@ -1743,6 +1814,7 @@ body {
     visibility: visible !important;
     opacity: 1 !important;
     z-index: 10 !important;
+    pointer-events: auto !important;
   }
 
   .answer-label {
@@ -1757,6 +1829,9 @@ body {
     visibility: visible !important;
     opacity: 1 !important;
     word-break: break-word !important;
+    max-height: 250px !important;
+    overflow-y: auto !important;
+    pointer-events: none !important;
   }
 
   .flashcard-options-wrapper {
@@ -1771,19 +1846,68 @@ body {
     font-size: 16px;
   }
 
-  .reveal-btn,
-  .back-btn {
+  /* ============================================ */
+  /* REVEAL BUTTON - DEFAULT STATE */
+  /* ============================================ */
+  .flashcard-front .reveal-btn {
     position: absolute !important;
-    bottom: 20px !important;
+    bottom: 15px !important;
     left: 50% !important;
-    right: auto !important;
     transform: translateX(-50%) !important;
-    width: 150px !important;
-    height: 40px !important;
-    font-size: 14px !important;
-    z-index: 50 !important;
+    width: 180px !important;
+    height: 48px !important;
+    font-size: 15px !important;
+    z-index: 500 !important;
+    pointer-events: auto !important;
+    background: rgba(157, 78, 221, 0.4) !important;
+    border: 2px solid #9d4edd !important;
+    cursor: pointer !important;
+    touch-action: manipulation !important;
+    -webkit-tap-highlight-color: rgba(157, 78, 221, 0.3) !important;
   }
 
+  /* ============================================ */
+  /* BACK BUTTON - FLIPPED STATE */
+  /* ============================================ */
+  .flashcard-back .back-btn {
+    position: absolute !important;
+    bottom: 15px !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    width: 180px !important;
+    height: 48px !important;
+    font-size: 15px !important;
+    z-index: 500 !important;
+    pointer-events: auto !important;
+    background: rgba(157, 78, 221, 0.4) !important;
+    border: 2px solid #9d4edd !important;
+    cursor: pointer !important;
+    touch-action: manipulation !important;
+    -webkit-tap-highlight-color: rgba(157, 78, 221, 0.3) !important;
+  }
+
+  /* ✅ WHEN FLIPPED - ENSURE BACK BUTTON IS SUPER CLICKABLE */
+  .flashcard-wrapper.flipped .back-btn {
+    z-index: 600 !important;
+    pointer-events: auto !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+
+  .reveal-btn:hover,
+  .back-btn:hover {
+    background: #5a0078 !important;
+  }
+
+  .reveal-btn:active,
+  .back-btn:active {
+    transform: translateX(-50%) scale(0.95) !important;
+  }
+
+  /* ============================================ */
+  /* EMPTY STATE */
+  /* ============================================ */
   .empty-state {
     height: 500px;
     padding: 40px 20px;
@@ -1801,7 +1925,6 @@ body {
     font-size: 16px;
   }
 
-  /* MOBILE NAV */
   .mobile-nav-btn {
     padding: 12px 18px;
     font-size: 14px;
@@ -1843,9 +1966,9 @@ body {
 
   .reveal-btn,
   .back-btn {
-    width: 140px !important;
-    height: 38px !important;
-    font-size: 13px !important;
+    width: 170px !important;
+    height: 46px !important;
+    font-size: 14px !important;
   }
 }
 

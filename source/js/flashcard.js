@@ -143,13 +143,15 @@ export function initFlashcard(elements) {
     }
   }
 
-  flashcardRevealBtn?.addEventListener("click", () => {
+  flashcardRevealBtn?.addEventListener("click", (e) => {
+    e.stopPropagation();
     flashcardWrapper?.classList.add("flipped");
     closeAllMenus();
     updateNavigationButtons();
   });
 
-  flashcardBackBtn?.addEventListener("click", () => {
+  flashcardBackBtn?.addEventListener("click", (e) => {
+    e.stopPropagation();
     flashcardWrapper?.classList.remove("flipped");
     if (flashcardAnswerInput) flashcardAnswerInput.value = "";
     closeAllMenus();
