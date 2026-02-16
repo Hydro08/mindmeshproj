@@ -45,7 +45,7 @@
         </div>
 
         <div class="flashcard-container">
-          <div class="flashcard-nav-btn previous-flashcard-view">
+          <div class="flashcard-nav-btn previous-flashcard-view desktop-nav">
             <button id="flashcardPrevBtn" aria-label="Previous card">
               <i class="fa-solid fa-chevron-left"></i>
             </button>
@@ -82,7 +82,7 @@
                 </div>
 
                 <div class="flashcard-content">
-                  <p class="flashcard-question"></p>
+                  <p class="flashcard-question">Test</p>
                   <input
                     type="text"
                     class="flashcard-input"
@@ -119,11 +119,28 @@
             </div>
           </div>
 
-          <div class="flashcard-nav-btn next-flashcard-view">
+          <div class="flashcard-nav-btn next-flashcard-view desktop-nav">
             <button id="flashcardNextBtn" aria-label="Next card">
               <i class="fa-solid fa-chevron-right"></i>
             </button>
           </div>
+        </div>
+
+        <div class="flashcard-mobile-nav">
+          <button
+            class="mobile-nav-btn"
+            id="flashcardPrevBtnMobile"
+            aria-label="Previous card"
+          >
+            <i class="fa-solid fa-chevron-left"></i> Previous
+          </button>
+          <button
+            class="mobile-nav-btn"
+            id="flashcardNextBtnMobile"
+            aria-label="Next card"
+          >
+            Next <i class="fa-solid fa-chevron-right"></i>
+          </button>
         </div>
       </section>
     </main>

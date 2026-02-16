@@ -34,6 +34,10 @@ const elements = {
   menuBarMobile: document.getElementById("menuBarMobile"),
   dashboardMenuBarMobile: document.getElementById("dashboardMenuBarMobile"),
   mobileCloseBar: document.getElementById("mobileCloseBar"),
+  dashboardMobileSignOutBtn: document.getElementById(
+    "dashboardMobileSignOutBtn",
+  ),
+  dashboardMobileUsername: document.getElementById("dashboardMobileUsername"),
 
   // === CREATE DECK FUNCTION === //
   createDeckBackLink: document.getElementById("createDeckBackLink"),

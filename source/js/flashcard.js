@@ -23,6 +23,13 @@ export function initFlashcard(elements) {
     resetProgressBtn,
   } = elements;
 
+  const flashcardPrevBtnMobile = document.getElementById(
+    "flashcardPrevBtnMobile",
+  );
+  const flashcardNextBtnMobile = document.getElementById(
+    "flashcardNextBtnMobile",
+  );
+
   const urlParams = new URLSearchParams(window.location.search);
   const deckId = Number(urlParams.get("deckId"));
   const decksKey = `decks_${currentUser}`;
@@ -108,29 +115,44 @@ export function initFlashcard(elements) {
     return viewedCardIds.size >= flashcards.length;
   }
 
+  function closeAllMenus() {
+    flashcardOptionsMenu?.classList.remove("show");
+    categoryDropdown?.classList.remove("show");
+  }
+
   function updateNavigationButtons() {
     const isFlipped = flashcardWrapper?.classList.contains("flipped");
 
     if (isFlipped) {
       flashcardPrevBtn.disabled = true;
       flashcardNextBtn.disabled = true;
+      if (flashcardPrevBtnMobile) flashcardPrevBtnMobile.disabled = true;
+      if (flashcardNextBtnMobile) flashcardNextBtnMobile.disabled = true;
     } else {
-      flashcardPrevBtn.disabled = historyPosition === 0;
-
+      const prevDisabled = historyPosition === 0;
       const allViewed = hasViewedAllCards();
       const atEnd = historyPosition === cardHistory.length - 1;
-      flashcardNextBtn.disabled = allViewed && atEnd;
+      const nextDisabled = allViewed && atEnd;
+
+      flashcardPrevBtn.disabled = prevDisabled;
+      flashcardNextBtn.disabled = nextDisabled;
+      if (flashcardPrevBtnMobile)
+        flashcardPrevBtnMobile.disabled = prevDisabled;
+      if (flashcardNextBtnMobile)
+        flashcardNextBtnMobile.disabled = nextDisabled;
     }
   }
 
   flashcardRevealBtn?.addEventListener("click", () => {
     flashcardWrapper?.classList.add("flipped");
+    closeAllMenus();
     updateNavigationButtons();
   });
 
   flashcardBackBtn?.addEventListener("click", () => {
     flashcardWrapper?.classList.remove("flipped");
     if (flashcardAnswerInput) flashcardAnswerInput.value = "";
+    closeAllMenus();
     updateNavigationButtons();
   });
 
@@ -157,6 +179,7 @@ export function initFlashcard(elements) {
 
     flashcardWrapper.classList.add("flipped");
     flashcardAnswerInput.value = "";
+    closeAllMenus();
     updateNavigationButtons();
 
     saveDeckProgress(currentFlashcard);
@@ -192,7 +215,7 @@ export function initFlashcard(elements) {
     }
   }
 
-  flashcardPrevBtn?.addEventListener("click", () => {
+  function handlePrevious() {
     if (!flashcards.length) return;
 
     if (historyPosition > 0) {
@@ -200,9 +223,9 @@ export function initFlashcard(elements) {
       currentCardIndex = cardHistory[historyPosition];
       loadCard();
     }
-  });
+  }
 
-  flashcardNextBtn?.addEventListener("click", () => {
+  function handleNext() {
     if (!flashcards.length) return;
 
     if (hasViewedAllCards() && historyPosition === cardHistory.length - 1) {
@@ -228,7 +251,13 @@ export function initFlashcard(elements) {
     historyPosition = cardHistory.length - 1;
 
     loadCard();
-  });
+  }
+
+  flashcardPrevBtn?.addEventListener("click", handlePrevious);
+  flashcardPrevBtnMobile?.addEventListener("click", handlePrevious);
+
+  flashcardNextBtn?.addEventListener("click", handleNext);
+  flashcardNextBtnMobile?.addEventListener("click", handleNext);
 
   flashboardCreateBtn?.addEventListener("click", () => {
     if (!deckId) {
@@ -238,6 +267,12 @@ export function initFlashcard(elements) {
     localStorage.setItem("activeDeckId", deckId);
     window.location.href = "create-flashcard.html";
   });
+
+  document
+    .getElementById("flashcardBackButton")
+    ?.addEventListener("click", () => {
+      window.location.href = "dashboard.html";
+    });
 
   function loadCategoriesDropdown() {
     if (!categoryDropdown) return;
@@ -259,26 +294,11 @@ export function initFlashcard(elements) {
         item.classList.add("active");
       }
 
-      categoryDropdown.appendChild(item);
-    });
-
-    attachCategoryHandlers();
-  }
-
-  function attachCategoryHandlers() {
-    const categoryItems = categoryDropdown?.querySelectorAll(".category-item");
-    if (!categoryItems) return;
-
-    categoryItems.forEach((item) => {
       item.addEventListener("click", () => {
-        categoryItems.forEach((i) => i.classList.remove("active"));
-        item.classList.add("active");
-
-        const selectedCategory = item.dataset.category;
-        filterByCategory(selectedCategory);
-
-        categoryDropdown.classList.remove("show");
+        filterByCategory(category);
       });
+
+      categoryDropdown.appendChild(item);
     });
   }
 
@@ -298,23 +318,13 @@ export function initFlashcard(elements) {
   allCategoriesBtn?.addEventListener("click", (e) => {
     e.stopPropagation();
     categoryDropdown?.classList.toggle("show");
-  });
-
-  document.addEventListener("click", (e) => {
-    if (!e.target.closest(".category-dropdown-wrapper")) {
-      categoryDropdown?.classList.remove("show");
-    }
+    flashcardOptionsMenu?.classList.remove("show");
   });
 
   flashcardOptionsBtn?.addEventListener("click", (e) => {
     e.stopPropagation();
     flashcardOptionsMenu?.classList.toggle("show");
-  });
-
-  document.addEventListener("click", (e) => {
-    if (!e.target.closest(".flashcard-options-wrapper")) {
-      flashcardOptionsMenu?.classList.remove("show");
-    }
+    categoryDropdown?.classList.remove("show");
   });
 
   editFlashcardBtn?.addEventListener("click", () => {
@@ -333,7 +343,7 @@ export function initFlashcard(elements) {
         `Delete this flashcard?\n\nQuestion: ${currentFlashcard.question}`,
       )
     ) {
-      flashcardOptionsMenu?.classList.remove("show");
+      closeAllMenus();
       return;
     }
 
@@ -359,8 +369,7 @@ export function initFlashcard(elements) {
     currentCardIndex = 0;
     viewedCardIds.clear();
 
-    flashcardOptionsMenu?.classList.remove("show");
-
+    closeAllMenus();
     loadCard();
     alert("✅ Flashcard deleted successfully!");
   });
@@ -402,17 +411,22 @@ export function initFlashcard(elements) {
     alert("✅ Progress reset successfully!");
   });
 
-  document
-    .getElementById("flashcardBackButton")
-    ?.addEventListener("click", () => {
-      window.location.href = "dashboard.html";
-    });
+  document.addEventListener("click", (e) => {
+    if (!e.target.closest(".category-dropdown-wrapper")) {
+      categoryDropdown?.classList.remove("show");
+    }
+    if (!e.target.closest(".flashcard-options-wrapper")) {
+      flashcardOptionsMenu?.classList.remove("show");
+    }
+  });
 
   function loadCard() {
     if (!flashcards.length) {
       showEmptyState();
       return;
     }
+
+    closeAllMenus();
 
     const card = flashcards[currentCardIndex];
 
@@ -444,7 +458,7 @@ export function initFlashcard(elements) {
       emptyState = document.createElement("div");
       emptyState.className = "empty-state";
       emptyState.innerHTML = `
-        <i class="fa-solid fa-layer-group" style="color: #fff;font-size:80px;opacity:.3;margin-bottom:20px"></i>
+        <i class="fa-solid fa-layer-group"></i>
         <h2>No Flashcards Yet</h2>
         <p>Click "+ Create Flashcard" to get started!</p>
       `;
@@ -455,6 +469,8 @@ export function initFlashcard(elements) {
 
     flashcardPrevBtn.disabled = true;
     flashcardNextBtn.disabled = true;
+    if (flashcardPrevBtnMobile) flashcardPrevBtnMobile.disabled = true;
+    if (flashcardNextBtnMobile) flashcardNextBtnMobile.disabled = true;
 
     document.getElementById("currentCard").textContent = "0";
     document.getElementById("totalCards").textContent = "0";

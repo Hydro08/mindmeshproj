@@ -41,9 +41,26 @@ export function initProfile(elements) {
     );
     document.getElementById("totalCards").textContent = totalCards;
 
+    // ✅ FORMAT TIME BETTER
     const totalStudyTime = userData.totalStudyTime || 0;
-    document.getElementById("totalStudyTime").textContent =
-      `${totalStudyTime} min`;
+    const formattedTime = formatStudyTime(totalStudyTime);
+    document.getElementById("totalStudyTime").textContent = formattedTime;
+  }
+
+  // ✅ ADD THIS FUNCTION
+  function formatStudyTime(minutes) {
+    if (minutes === 0) return "0 min";
+
+    const hours = Math.floor(minutes / 60);
+    const mins = minutes % 60;
+
+    if (hours === 0) {
+      return `${mins} min`;
+    } else if (mins === 0) {
+      return `${hours}h`;
+    } else {
+      return `${hours}h ${mins}m`;
+    }
   }
 
   function loadMostStudiedDecks() {

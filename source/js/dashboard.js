@@ -10,6 +10,8 @@ export function initDashboard(elements) {
     menuBarMobile,
     dashboardMenuBarMobile,
     mobileCloseBar,
+    dashboardMobileSignOutBtn,
+    dashboardMobileUsername,
   } = elements;
 
   const currentUser = protectPage();
@@ -268,12 +270,22 @@ export function initDashboard(elements) {
   }
 
   if (dashboardUsername) dashboardUsername.textContent = currentUser;
+  if (dashboardMobileUsername)
+    dashboardMobileUsername.textContent = currentUser;
 
   dashboardSignoutBtn?.addEventListener("click", () => {
+    logoutFunc();
+  });
+
+  dashboardMobileSignOutBtn?.addEventListener("click", () => {
+    logoutFunc();
+  });
+
+  function logoutFunc() {
     localStorage.removeItem("isLoggedIn");
     localStorage.removeItem("currentUser");
     window.location.href = "../../index.html";
-  });
+  }
 
   if (searchInput && clearSearch) {
     searchInput.addEventListener("input", () => {
