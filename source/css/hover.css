@@ -1,3 +1,40 @@
+.footer-login-form a,
+.footer-signup-form a,
+.footer-login-form button,
+.footer-signup-form button,
+.dashboard-decks-grid .dashboard-create-deck-card,
+.dashboard-decks-grid .dashboard-created-deck-card,
+.dashboard-decks-grid .dashboard-create-deck-card p,
+.deck-options-wrapper .deck-options-btn,
+.deck-options-menu .option-item,
+.deck-options-menu .edit-deck-option,
+.deck-options-menu .delete-deck-option,
+.flashcard-back-button,
+.flashboard-button-container button,
+.flashcard-nav-btn button,
+.flashcard-content .flashcard-submit-btn,
+.flashcard-submit-btn,
+.reveal-btn,
+.back-btn,
+.create-deck-footer button,
+.create-deck-cancel-btn,
+.create-flashcard-footer button,
+.create-flashcard-cancel-btn,
+.category-item,
+.mobile-nav-btn,
+.flashcard-options-btn,
+.option-item,
+.edit-option,
+.delete-option,
+.create-flashcard-header a,
+.profile-back-button,
+.stat-item,
+.studied-deck-item,
+.deck-study-btn,
+.profile-logout-btn {
+  transition: all 0.3s ease;
+}
+
 .footer-login-form a:hover,
 .footer-signup-form a:hover {
   background: rgba(157, 78, 221, 0.15);
@@ -8,6 +45,7 @@
   box-shadow:
     0 0 10px #9b00ce,
     0 0 20px #fff;
+  transform: scale(1.05);
 }
 
 .dashboard-decks-grid .dashboard-create-deck-card:hover,
@@ -15,6 +53,7 @@
   backdrop-filter: blur(10px);
   box-shadow: 0 10px 40px rgba(255, 255, 255, 0.5);
   z-index: 10;
+  transform: translateY(-5px);
 }
 
 .dashboard-decks-grid .dashboard-create-deck-card:hover p {
@@ -23,19 +62,23 @@
 
 .deck-options-wrapper .deck-options-btn:hover {
   background: rgba(255, 255, 255, 0.1);
+  transform: scale(1.05);
 }
 
 .deck-options-menu .option-item:hover {
   background: rgba(214, 101, 255, 0.2);
+  transform: translateX(5px);
 }
 
 .deck-options-menu .edit-deck-option:hover {
   background: rgba(59, 130, 246, 0.2);
+  transform: translateX(5px);
 }
 
 .deck-options-menu .delete-deck-option:hover {
   background: rgba(239, 68, 68, 0.2);
   color: #ff6b6b;
+  transform: translateX(5px);
 }
 
 .created-deck-delete-btn:hover img {
@@ -46,12 +89,14 @@
   background: #5a0078;
   backdrop-filter: blur(10px);
   box-shadow: 0 8px 32px rgba(157, 78, 221, 0.2);
+  transform: translateX(-3px);
 }
 
 .flashboard-button-container button:hover {
   background: #5a0078;
   backdrop-filter: blur(10px);
   box-shadow: 0 8px 32px rgba(157, 78, 221, 0.2);
+  transform: translateY(-2px);
 }
 
 .flashcard-nav-btn button:hover:not(:disabled) {
@@ -64,6 +109,11 @@
   cursor: not-allowed;
 }
 
+.mobile-nav-btn:hover:not(:disabled) {
+  background: #5a0078;
+  transform: translateY(-2px);
+}
+
 .flashcard-input::placeholder {
   color: rgba(255, 255, 255, 0.6);
 }
@@ -74,35 +124,93 @@
   border-color: #d665ff;
 }
 
-.flashcard-content .flashcard-submit-btn:hover {
+.flashcard-content .flashcard-submit-btn:hover,
+.flashcard-submit-btn:hover {
   background: #5a0078;
   backdrop-filter: blur(10px);
   box-shadow: 0 8px 32px rgba(157, 78, 221, 0.2);
+  transform: translateY(-2px);
 }
 
 .reveal-btn:hover,
 .back-btn:hover {
   background: #5a0078;
   backdrop-filter: blur(10px);
-  box-shadow: 0 8px 32px rgba(157, 78, 221, 0.2);
-}
-
-.create-deck-footer button:hover {
-  background: #5a0078;
+  box-shadow: 0 5px 15px rgba(157, 78, 221, 0.5);
+  border-color: #d665ff;
   transform: translateY(-2px);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
 }
 
-.create-deck-cancel-btn:hover {
-  background: rgba(255, 255, 255, 0.1) !important;
-}
-
+.create-deck-footer button:hover,
 .create-flashcard-footer button:hover {
   background: #5a0078;
-  transform: translateY(-2px);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.4);
 }
 
+.create-deck-cancel-btn:hover,
 .create-flashcard-cancel-btn:hover {
   background: rgba(255, 255, 255, 0.1) !important;
+  transform: scale(1.05);
+}
+
+.create-flashcard-header a:hover {
+  background: #5a0078;
+  transform: translateY(-2px);
+}
+
+.flashcard-options-btn:hover {
+  background: rgba(90, 0, 120, 1);
+  transform: scale(1.1);
+  box-shadow: 0 4px 12px rgba(157, 78, 221, 0.4);
+}
+
+.option-item:hover {
+  background: rgba(90, 0, 120, 0.6);
+}
+
+.edit-option:hover {
+  background: rgba(16, 185, 129, 0.2);
+  color: #10b981;
+}
+
+.delete-option:hover {
+  background: rgba(239, 68, 68, 0.2);
+}
+
+.flashcard-question::-webkit-scrollbar-thumb:hover,
+.flashcard-answer::-webkit-scrollbar-thumb:hover {
+  background: rgba(157, 78, 221, 0.8);
+}
+
+.category-item:hover {
+  background: #5a0078;
+}
+
+.profile-back-button:hover {
+  background: #9d4edd;
+  transform: translateX(-5px);
+  box-shadow: 0 5px 15px rgba(157, 78, 221, 0.3);
+}
+
+.stat-item:hover {
+  background: rgba(199, 125, 255, 0.2);
+  transform: translateY(-5px);
+}
+
+.studied-deck-item:hover {
+  background: rgba(199, 125, 255, 0.25);
+  border-color: #9d4edd;
+  transform: translateX(10px);
+  box-shadow: 0 5px 20px rgba(157, 78, 221, 0.3);
+}
+
+.deck-study-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 5px 15px rgba(157, 78, 221, 0.4);
+}
+
+.profile-logout-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 30px rgba(193, 18, 31, 0.5);
 }

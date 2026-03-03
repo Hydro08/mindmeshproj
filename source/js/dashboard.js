@@ -78,7 +78,7 @@ export function initDashboard(elements) {
   });
 
   mobileCloseBar?.addEventListener("click", () => {
-    dashboardMenuBarMobile.style.top = "-300px";
+    dashboardMenuBarMobile.style.top = "-410px";
     enabledOutsideBar();
     setTimeout(() => {
       dashboardMenuBarMobile.style.display = "none";
