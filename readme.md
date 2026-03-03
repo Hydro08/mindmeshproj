@@ -67,7 +67,7 @@ Only follow these steps if you want to modify the code or run it completely offl
    - Select the **mindmeshproj** folder
 
 4. **Launch the App**
-   - Right-click on `index.html` or `login.html` in the file explorer
+   - Right-click on `index.html` in the file explorer
    - Select "Open with Live Server"
    - Your default browser will open with the app running
 
@@ -80,19 +80,14 @@ Only follow these steps if you want to modify the code or run it completely offl
 **No setup needed!** Just open your mobile browser and visit:
 **[https://hydro08.github.io/mindmeshproj/](https://hydro08.github.io/mindmeshproj/)**
 
-Works on both iOS and Android. Add to home screen for app-like experience!
-
-**To Add to Home Screen:**
-
-- **iOS (Safari)**: Tap the Share button → "Add to Home Screen"
-- **Android (Chrome)**: Tap the Menu (⋮) → "Add to Home Screen" or "Install App"
+Works on both iOS and Android.
 
 ### Mobile Usage Tips
 
 - **Create Deck**: Tap the "Create Deck" button
 - **Navigation**: Use the hamburger menu (☰) to access options
 - **Flashcards**: Tap "REVEAL ANSWER" to see the answer
-- **Landscape Mode**: Rotate device for better viewing
+- **Landscape Mode**: For now, use portrait mode for smoother viewing and layout.
 
 ## 📖 How to Use
 
